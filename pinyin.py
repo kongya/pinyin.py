@@ -13,9 +13,12 @@ import os.path
 
 
 class PinYin(object):
-    def __init__(self, dict_file='word.data'):
+    def __init__(self, dict_file=None):
         self.word_dict = {}
-        self.dict_file = dict_file
+        if dict_file is not None:
+            self.dict_file = dict_file
+        else:
+            self.dict_file=os.path.split(os.path.realpath(__file__))[0]+os.path.sep+'word.data'
 
 
     def load_word(self):
