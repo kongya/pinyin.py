@@ -39,7 +39,10 @@ class PinYin(object):
         
         for char in string:
             key = '%X' % ord(char)
-            result.append(self.word_dict.get(key, char).split()[0][:-1].lower())
+            try:
+                result.append(self.word_dict.get(key, char).split()[0][:-1].lower())
+            except:
+                continue
 
         return result
 
